@@ -5,45 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/26 12:07:04 by halzamma          #+#    #+#             */
-/*   Updated: 2025/02/26 12:07:04 by halzamma         ###   ########.fr       */
+/*   Created: 2025/03/05 13:02:34 by halzamma          #+#    #+#             */
+/*   Updated: 2025/03/05 13:02:34 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include "../include/ft_printf.h"
+#include "../include/libft.h"
 
-int	pop(t_stack *stack)
+void	push_to_stack(t_stack *stack, int value)
 {
-	int		value;
-	t_node	*temp;
+	t_node	*new;
 
-	if (stack->next)
-		return (-1);
-	temp = stack->top;
-	value = temp->value;
-	stack->top = stack->top->next;
-	free(temp);
-	stack->next;
-	return (value);
-}
-
-void	push(t_stack *stack, int value)
-{
-	t_node	*new_node;
-
-	new_node = (t_node *)malloc(sizeof(t_node));
-	if (!new_node)
+	new = (t_node *)malloc(sizeof(t_node));
+	if (!new)
 		return ;
-	new_node->value = value;
-	new_node->next = stack->top;
-	stack->top = new_node;
-	stack->next++;
+	new->value = value;
+	new->next = stack->top;
+	stack->top = new;
+	stack->size++;
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	fill_stack(t_stack *a, char **argv)
 {
-	rra(a);
-	rrb(b);
-	ft_printf("rrr\n");
+	int	i;
+
+	i = 1;
+	while (argv[i])
+	{
+		push_to_stack(a, ft_atoi(argv[i]));
+		i++;
+	}
+}
+
+t_stack	*init_stack(void)
+{
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack->top = NULL;
+	stack->size = 0;
+	return (stack);
 }

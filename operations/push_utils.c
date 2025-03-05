@@ -10,39 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	push(t_stack *stack, int value)
-{
-	t_node	*new_node;
-
-	new_node = (t_node *)malloc(sizeof(t_node));
-	if (!new_node)
-		return;
-	new_node->value = value;
-	new_node->next = stack->top;
-	stack->top = new_node;
-	stack->size++;
-}
+#include "../include/push_swap.h"
+#include "../include/print.h"
 
 void	pa(t_stack *a, t_stack *b)
 {
-	int	nb;
+	int	value;
 
 	if (b->size < 1)
-		return;
-	nb = pop(b);
-	push(a, nb);
-	write(1, "pa\n", 3);
+		return ;
+	value = pop(b);
+	push(a, value);
+	ft_printf("pa\n");
 }
 
 void	pb(t_stack *a, t_stack *b)
 {
-	int	nb;
+	int	value;
 
 	if (a->size < 1)
-		return;
-	nb = pop(a);
-	push(b, nb);
-	write(1, "pb\n", 3);
+		return ;
+	value = pop(a);
+	push(b, value);
+	ft_printf("pb\n");
 }

@@ -29,6 +29,7 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
+// Stack operations
 void	sa(t_stack *a);
 void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);
@@ -40,9 +41,25 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
-t_stack	*init_stack(t_stack	*stack);
 void	push(t_stack *stack, int value);
 int		pop(t_stack *stack);
-void	print_stack(t_stack *stack, char name);
+
+// Stack utilities
+t_stack	*init_stack(void);
+void	push_to_stack(t_stack *stack, int value);
+void	fill_stack(t_stack *a, char **argv);
+
+// sorts
+void	sort_stack(t_stack *a, t_stack *b);
+void	sort_three(t_stack *a);
+void	sort_five(t_stack *a, t_stack *b);
+void	insertion_sort(t_stack *a, t_stack *b);
+void	radix_sort(t_stack *a, t_stack *b);
+
+// check
+int		check_valid(int argc, char **argv);
+int		check_double(int nb, t_stack *a);
+int		check_args(char **argv, t_stack *a);
+int		check_sorted(t_stack *a);
 
 #endif
