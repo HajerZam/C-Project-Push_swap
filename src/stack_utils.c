@@ -47,3 +47,8 @@ t_stack	*init_stack(void)
 	stack->size = 0;
 	return (stack);
 }
+
+int	stack_size(t_stack *stack)
+{
+	return (stack->size);
+}

@@ -48,6 +48,7 @@ int		pop(t_stack *stack);
 t_stack	*init_stack(void);
 void	push_to_stack(t_stack *stack, int value);
 void	fill_stack(t_stack *a, char **argv);
+int		stack_size(t_stack *stack);
 
 // sorts
 void	sort_stack(t_stack *a, t_stack *b);
@@ -55,6 +56,10 @@ void	sort_three(t_stack *a);
 void	sort_five(t_stack *a, t_stack *b);
 void	insertion_sort(t_stack *a, t_stack *b);
 void	radix_sort(t_stack *a, t_stack *b);
+int		find_min_index(t_stack *a);
+int		get_max_bits(t_stack *a);
+int		stack_is_empty(t_stack *stack);
+void	move_to_top(t_stack *a, int min_index);
 
 // check
 int		check_valid(int argc, char **argv);

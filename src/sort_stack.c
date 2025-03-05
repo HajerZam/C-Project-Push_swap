@@ -84,5 +84,3 @@ void	radix_sort(t_stack *a, t_stack *b)
 		i++;
 	}
 }
-
-// make get_max_bits and find_min_index and move_to_top and stack_size and stack_is_empty
