@@ -43,9 +43,11 @@ int	check_valid(int argc, char **argv)
 
 int	check_double(int nb, t_stack *a)
 {
-	t_stack	*tmp;
+	t_node	*tmp;
 
-	tmp = a;
+	if (!a || !a->top)
+		return (1);
+	tmp = a->top;
 	while (tmp)
 	{
 		if (tmp->nb == nb)
@@ -86,13 +88,16 @@ int	check_args(char **argv, t_stack *a)
 
 int	check_sorted(t_stack *a)
 {
-	if (!a)
-		return (0);
-	while (a->next)
+	t_node *tmp;
+
+	if (!a || !a->top)
+		return (1);
+	tmp = a->top;
+	while (tmp->next)
 	{
-		if (a->nb > a->next->nb)
+		if (tmp->nb > tmp->next->nb)
 			return (0);
-		a = a->next;
+		tmp = tmp->next;
 	}
 	return (1);
 }

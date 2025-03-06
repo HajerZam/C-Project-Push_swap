@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include "../include/print.h"
+#include "../include/ft_printf.h"
 
 void	pa(t_stack *a, t_stack *b)
 {

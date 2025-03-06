@@ -6,10 +6,11 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:28:40 by halzamma          #+#    #+#             */
-/*   Updated: 2024/12/16 20:28:40 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/06 13:04:47 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
+#include "../include/libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

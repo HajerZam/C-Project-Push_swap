@@ -20,7 +20,7 @@ void	push_to_stack(t_stack *stack, int value)
 	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
 		return ;
-	new->value = value;
+	new->nb = value;
 	new->next = stack->top;
 	stack->top = new;
 	stack->size++;
@@ -40,6 +40,8 @@ void	fill_stack(t_stack *a, char **argv)
 
 t_stack	*init_stack(void)
 {
+	t_stack	*stack;
+
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);

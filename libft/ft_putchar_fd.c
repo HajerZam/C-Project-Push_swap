@@ -6,10 +6,11 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 16:39:02 by halzamma          #+#    #+#             */
-/*   Updated: 2024/12/22 16:39:02 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/06 13:10:13 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
+#include "../include/libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

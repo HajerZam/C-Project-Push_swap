@@ -6,10 +6,11 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 20:36:03 by halzamma          #+#    #+#             */
-/*   Updated: 2024/12/16 20:36:03 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/06 13:05:47 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
+#include "../include/libft.h"
 
 char	*ft_strnstr(const char *src, const char *tar, size_t len)
 {

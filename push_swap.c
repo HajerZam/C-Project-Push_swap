@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
-#include "../include/libft.h"
+#include "./include/push_swap.h"
+#include "./include/libft.h"
 
 void	initialize_stacks(t_stack **a, t_stack **b)
 {

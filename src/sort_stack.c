@@ -15,12 +15,12 @@
 // swap for 3 elements
 void	sort_three(t_stack *a)
 {
-	if (a->top->value > a->top->next->value)
+	if (a->top->nb > a->top->next->nb)
 		sa(a);
-	if (a->top->next->value > a->top->next->next->value)
+	if (a->top->next->nb > a->top->next->next->nb)
 	{
 		rra(a);
-		if (a->top->value > a->top->next->value)
+		if (a->top->nb > a->top->next->nb)
 			sa(a);
 	}
 }
@@ -44,13 +44,10 @@ void	sort_five(t_stack *a, t_stack *b)
 // Insertion Sort optimized with Stack B
 void	insertion_sort(t_stack *a, t_stack *b)
 {
-	int	value;
-
 	while (!stack_is_empty(a))
 	{
-		value = a->top->value;
-		pb(a, b);// Push to B plus keeping it sorted
-		if (b->top->next && b->top->value > b->top->next->value)
+		pb(a, b); // Push to B plus keeping it sorted
+		if (b->top->next && b->top->nb > b->top->next->nb)
 			sb(b);
 	}
 	while (!stack_is_empty(b))
@@ -73,7 +70,7 @@ void	radix_sort(t_stack *a, t_stack *b)
 		j = 0;
 		while (j < size)
 		{
-			if ((a->top->value >> i) & 1)
+			if ((a->top->nb >> i) & 1)
 				ra(a);// If bit is 1, rotate to bottom
 			else
 				pb(a, b);// If bit is 0, push to B

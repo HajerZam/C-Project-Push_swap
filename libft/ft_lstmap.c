@@ -6,10 +6,11 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 15:00:49 by halzamma          #+#    #+#             */
-/*   Updated: 2024/12/27 15:00:49 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/06 13:15:11 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
+#include "../include/libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

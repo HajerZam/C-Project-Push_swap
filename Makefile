@@ -10,48 +10,52 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME := push_swap
-
 CC := gcc
 CFLAGS := -Wall -Wextra -Werror
 
 SRCDIR := src
+CHKDIR := check
+OPSDIR := operations
 OBJDIR := obj
 LIBFTDIR := libft
-FTPRINTF_DIR := ft_printf_src
+FTPRINTFDIR := ft_printf
+INCLUDEDIR := include
 
-SRCS := $(wildcard $(SRCDIR)/*.c) $(wildcard operations/*.c)
+SRCS := $(wildcard $(SRCDIR)/*.c) $(wildcard $(CHKDIR)/*.c) $(wildcard $(OPSDIR)/*.c)
 OBJS := $(SRCS:%.c=$(OBJDIR)/%.o)
 
-LIBFT := $(LIBFTDIR)/libft.a
-FTPRINTF := $(FTPRINTF_DIR)/libftprintf.a
-LIBS := -L $(LIBFTDIR) -lft -L $(FTPRINTF_DIR) -lftprintf
-INCLUDES := -I include -I $(LIBFTDIR) -I $(FTPRINTF_DIR)
+NAME := push_swap
 
-$(NAME): $(LIBFT) $(FTPRINTF) $(OBJS)
- $(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
+LIBFT := $(LIBFTDIR)/libft.a
+FTPRINTF := $(FTPRINTFDIR)/libftprintf.a
+LIBS := -L	$(LIBFTDIR)	-lft	-L	$(FTPRINTFDIR)	-lftprintf
+INCLUDES :=	-I	$(INCLUDEDIR)	-I	$(LIBFTDIR)	-I	$(FTPRINTFDIR)
+
+$(NAME):	$(LIBFT)	$(FTPRINTF)	$(OBJS)
+			$(CC)	$(CFLAGS)	$(OBJS)	$(LIBS)	-o	$(NAME)
 
 $(OBJDIR)/%.o: %.c | $(OBJDIR)
- $(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	mkdir	-p	$(dir $@)
+	$(CC)	$(CFLAGS)	$(INCLUDES)	-c	$<	-o	$@
 
 $(OBJDIR):
- mkdir -p $(OBJDIR) $(OBJDIR)/operations
+	mkdir	-p	$(OBJDIR)	$(OBJDIR)/src	$(OBJDIR)/check	$(OBJDIR)/operations
 
 $(LIBFT):
- make -C $(LIBFTDIR)
+	@make	-C	$(LIBFTDIR)
 
 $(FTPRINTF):
- make -C $(FTPRINTF_DIR)
+	@make	-C	$(FTPRINTFDIR)
 
 clean:
- rm -rf $(OBJDIR)
- make -C $(LIBFTDIR) clean
- make -C $(FTPRINTF_DIR) clean
+	rm -rf $(OBJDIR)
+	@make -C $(LIBFTDIR) clean
+	@make -C $(FTPRINTFDIR) clean
 
 fclean: clean
- rm -f $(NAME)
- make -C $(LIBFTDIR) fclean
- make -C $(FTPRINTF_DIR) fclean
+	rm -f $(NAME)
+	@make -C $(LIBFTDIR) fclean
+	@make -C $(FTPRINTFDIR) fclean
 
 re: fclean $(NAME)
 

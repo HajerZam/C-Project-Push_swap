@@ -6,10 +6,11 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 15:17:44 by halzamma          #+#    #+#             */
-/*   Updated: 2024/12/22 15:17:44 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/06 13:18:43 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
+#include "../include/libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

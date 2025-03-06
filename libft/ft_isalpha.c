@@ -6,10 +6,11 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:43:03 by halzamma          #+#    #+#             */
-/*   Updated: 2024/12/17 12:43:03 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/06 13:17:56 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
+#include "../include/libft.h"
 
 int	ft_isalpha(int c)
 {

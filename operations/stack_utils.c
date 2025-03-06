@@ -18,13 +18,12 @@ int	pop(t_stack *stack)
 	int		value;
 	t_node	*temp;
 
-	if (stack->next)
+	if (!stack || !stack->top)
 		return (-1);
 	temp = stack->top;
-	value = temp->value;
-	stack->top = stack->top->next;
+	value = temp->nb;
+	stack->top = temp->next;
 	free(temp);
-	stack->next;
 	return (value);
 }
 
@@ -35,10 +34,9 @@ void	push(t_stack *stack, int value)
 	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
 		return ;
-	new_node->value = value;
+	new_node->nb = value;
 	new_node->next = stack->top;
 	stack->top = new_node;
-	stack->next++;
 }
 
 void	rrr(t_stack *a, t_stack *b)
