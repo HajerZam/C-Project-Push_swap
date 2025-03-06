@@ -29,7 +29,7 @@ int	check_valid(int argc, char **argv)
 		{
 			if (!ft_isdigit(argv[i][j]))
 			{
-				ft_printf("Error\n");
+				ft_printf("Error1\n"); // error
 				return (0);
 			}
 			j++;
@@ -41,26 +41,30 @@ int	check_valid(int argc, char **argv)
 	return (1);
 }
 
-int	check_double(int nb, t_stack *a)
+int	check_double(char *argv[])
 {
-	t_node	*tmp;
+	int	i;
+	int	j;
 
-	if (!a || !a->top)
-		return (1);
-	tmp = a->top;
-	while (tmp)
-	{
-		if (tmp->nb == nb)
-		{
-			ft_printf("Error\n");
-			return (0);
-		}
-		tmp = tmp->next;
-	}
-	return (1);
+	i = 1;
+    while (argv[i])
+    {
+		j = i + 1;
+        while (argv[j])
+        {
+            if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+            {
+                printf("Error2\n i = %s\n j = %s\n",argv[i],argv[j]);  // Debug print
+                return (0);
+            }
+			j++;
+        }
+		i++;
+    }
+    return (1);
 }
 
-int	check_args(char **argv, t_stack *a)
+int	check_args(char **argv)
 {
 	int	i;
 	int	j;
@@ -79,7 +83,7 @@ int	check_args(char **argv, t_stack *a)
 		}
 		if (ft_atoi(argv[i]) >= 2147483647 || ft_atoi(argv[i]) <= -2147483648)
 			return (0);
-		if (check_double(ft_atoi(argv[i]), a) == 0)
+		if (check_double(argv) == 0)
 			return (0);
 		i++;
 	}

@@ -63,8 +63,8 @@ void	move_to_top(t_stack *a, int min_index);
 
 // check
 int		check_valid(int argc, char **argv);
-int		check_double(int nb, t_stack *a);
-int		check_args(char **argv, t_stack *a);
+int		check_double(char *argv[]);
+int		check_args(char **argv);
 int		check_sorted(t_stack *a);
 
 #endif

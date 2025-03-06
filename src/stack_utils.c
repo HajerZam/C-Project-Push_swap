@@ -29,11 +29,15 @@ void	push_to_stack(t_stack *stack, int value)
 void	fill_stack(t_stack *a, char **argv)
 {
 	int	i;
+	int value;
 
 	i = 1;
 	while (argv[i])
 	{
-		push_to_stack(a, ft_atoi(argv[i]));
+		value = ft_atoi(argv[i]);
+		if (!check_double(argv) || value >= 2147483647 || value <= -2147483648)
+			exit(1);
+		push_to_stack(a, value);
 		i++;
 	}
 }

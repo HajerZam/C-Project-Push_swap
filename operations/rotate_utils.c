@@ -13,12 +13,12 @@
 #include "../include/push_swap.h"
 #include "../include/ft_printf.h"
 
-void	ra(t_stack *a)
+void ra(t_stack *a)
 {
-	t_node	*tmp;
-	t_node	*last;
+	t_node *tmp;
+	t_node *last;
 
-	if (a->size < 2)
+	if (a->size < 2 || !a->top || !a->top->next)
 		return ;
 	tmp = a->top;
 	a->top = a->top->next;
@@ -26,6 +26,7 @@ void	ra(t_stack *a)
 	last = a->top;
 	while (last->next)
 		last = last->next;
+
 	last->next = tmp;
 	ft_printf("ra\n");
 }
