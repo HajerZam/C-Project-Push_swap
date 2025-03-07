@@ -17,7 +17,6 @@ void sort_three(t_stack *a)
 {
     if (!a || !a->top || !a->top->next || !a->top->next->next)
         return ; // Ensure we have at least 3 elements
-
     if (a->top->nb > a->top->next->nb)
         sa(a);
     if (a->top->next->nb > a->top->next->next->nb)
