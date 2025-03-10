@@ -6,27 +6,40 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:02:34 by halzamma          #+#    #+#             */
-/*   Updated: 2025/03/05 13:02:34 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:25:23 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include "../include/libft.h"
 
-void	push_to_stack(t_stack *stack, int value)
+void push_to_stack(t_stack *stack, int value)
 {
-	t_node	*new;
+	t_node *new;
+	t_node *current;
 
 	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
 		return ;
 	new->nb = value;
-	new->next = stack->top;
-	stack->top = new;
+	new->next = NULL;
+	if (stack->top == NULL)
+	{
+		stack->top = new;
+	}
+	else
+	{
+		current = stack->top;
+		while (current->next != NULL)
+		{
+			current = current->next;
+		}
+		current->next = new;
+	}
 	stack->size++;
 }
 
-void	fill_stack(t_stack *a, char **argv)
+void	fill_stack(t_stack *a, char *argv[])
 {
 	int	i;
 	int value;
@@ -35,7 +48,7 @@ void	fill_stack(t_stack *a, char **argv)
 	while (argv[i])
 	{
 		value = ft_atoi(argv[i]);
-		if (!check_double(argv) || value >= 2147483647 || value <= -2147483648)
+		if (value >= 2147483647 || value <= -2147483648)
 			exit(1);
 		push_to_stack(a, value);
 		i++;

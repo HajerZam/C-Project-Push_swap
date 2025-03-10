@@ -6,12 +6,13 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 15:15:38 by halzamma          #+#    #+#             */
-/*   Updated: 2025/02/28 15:15:38 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/10 14:27:35 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include "../include/libft.h"
+#include "../include/ft_printf.h"
 
 void	initialize_stacks(t_stack **a, t_stack **b)
 {
@@ -21,17 +22,14 @@ void	initialize_stacks(t_stack **a, t_stack **b)
 
 void	sort_stacks(t_stack *a, t_stack *b)
 {
-	int	size;
-
-	size = a->size;
-	if (size <= 3)
-		sort_three(a);
-	else if (size <= 5)
-		sort_five(a, b);
-	else if (size <= 100)
-		insertion_sort(a, b);
-	else
-		radix_sort(a, b);
+	if (a->size == 3)
+        sort_three(a);
+    else if (a->size == 5)
+        sort_five(a, b);
+    else if (a->size <= 100)
+        greedy_sort(a, b);
+    else
+        radix_sort(a, b);
 }
 
 void	free_stack(t_stack *stack)
@@ -49,32 +47,38 @@ void	free_stack(t_stack *stack)
 	free(stack);
 }
 
-
+void print_stack(t_stack *stack)
+{
+    t_node *current = stack->top;
+    printf("Stack (size = %d):\n", stack->size);
+    while (current != NULL)
+    {
+        printf("%d -> ", current->nb);  // Print the current node's nb
+        current = current->next;
+    }
+    printf("NULL\n");  // End of stack
+}
 int	main(int argc, char *argv[])
 {
 	t_stack	*a;
 	t_stack	*b;
 
-	initialize_stacks(&a, &b);
-	if (!a || !b)
+	if (argc < 2 || !check_args(argc, argv)) 
 	{
-		printf("Stack initialization failed!\n");
+		ft_printf("Error\n");
 		return (0);
 	}
-	if (argc < 2 || !check_valid(argc, argv))
-	{
-		printf("Invalid input!1\n");
-		return (0);
-	}
-	fill_stack(a, argv);
-	if (!check_args(argv) || check_sorted(a))
-	{
-		printf("Invalid input!2\n");
-		return (0);
-	}
+	ft_printf("Args checked!\n");
+	a = init_stack();
+	b = init_stack();
 	printf("Stack initialized!\n");
+	fill_stack(a, argv);
+	printf("Stack filled!\n %d\n", a->size);
+	print_stack(a);
 	sort_stacks(a, b);
 	printf("Stack sorted!\n");
+	print_stack(a);
+	print_stack(b);
 	free_stack(a);
 	printf("Stack freed!\n");
 	free_stack(b);

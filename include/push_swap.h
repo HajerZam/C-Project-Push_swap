@@ -6,7 +6,7 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 23:19:24 by halzamma          #+#    #+#             */
-/*   Updated: 2025/02/25 23:19:24 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/10 14:59:52 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,24 +47,17 @@ int		pop(t_stack *stack);
 // Stack utilities
 t_stack	*init_stack(void);
 void	push_to_stack(t_stack *stack, int value);
-void	fill_stack(t_stack *a, char **argv);
+void	fill_stack(t_stack *a, char *argv[]);
 int		stack_size(t_stack *stack);
 
 // sorts
-void	sort_stack(t_stack *a, t_stack *b);
-void	sort_three(t_stack *a);
-void	sort_five(t_stack *a, t_stack *b);
-void	insertion_sort(t_stack *a, t_stack *b);
-void	radix_sort(t_stack *a, t_stack *b);
-int		find_min_index(t_stack *a);
-int		get_max_bits(t_stack *a);
-int		stack_is_empty(t_stack *stack);
-void	move_to_top(t_stack *a, int min_index);
+
+
 
 // check
-int		check_valid(int argc, char **argv);
-int		check_double(char *argv[]);
-int		check_args(char **argv);
-int		check_sorted(t_stack *a);
+int		check_args(int argc, char *argv[]);
+int		check_duplicates(int argc, char *argv[]);
+int		check_sorted(int argc, char *argv[]);
+int		check_args(int argc, char *argv[]);
 
 #endif
