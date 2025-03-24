@@ -6,7 +6,7 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:02:34 by halzamma          #+#    #+#             */
-/*   Updated: 2025/03/24 13:07:02 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/24 14:57:48 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	push_to_stack(t_stack *stack, int value)
 	stack->size++;
 }
 
-void	fill_stack(t_stack *a, char *argv[])
+void	fill_values(t_stack *a, char *argv[])
 {
 	int	i;
 	int	value;
@@ -48,26 +48,33 @@ void	fill_stack(t_stack *a, char *argv[])
 	while (argv[i])
 	{
 		value = ft_atoi(argv[i]);
-		if (value >= 2147483647 || value <= -2147483648)
+		if (value > 2147483647 || value < -2147483648)
 			exit(1);
 		push_to_stack(a, value);
 		i++;
 	}
 }
 
-t_stack	*init_stack(void)
+void	assign_indexes(t_stack *a)
 {
-	t_stack	*stack;
+	int		*arr;
+	int		size;
+	t_node	*tmp;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->top = NULL;
-	stack->size = 0;
-	return (stack);
+	size = a->size;
+	arr = stack_to_array(a);
+	sort_array(arr, size);
+	tmp = a->top;
+	while (tmp)
+	{
+		tmp->nb = get_index(arr, tmp->nb, size);
+		tmp = tmp->next;
+	}
+	free(arr);
 }
 
-int	stack_size(t_stack *stack)
+void	fill_stack(t_stack *a, char *argv[])
 {
-	return (stack->size);
+	fill_raw_values(a, argv);
+	assign_indexes(a);
 }

@@ -6,7 +6,7 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 12:39:04 by halzamma          #+#    #+#             */
-/*   Updated: 2025/03/10 14:31:25 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/24 14:59:27 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	check_duplicates(int argc, char *argv[])
 	return (1);
 }
 
-int check_sorted(int argc, char *argv[])
+int	check_sorted(int argc, char *argv[])
 {
 	int	i;
 
@@ -69,6 +69,7 @@ int check_sorted(int argc, char *argv[])
 	}
 	return (1);
 }
+
 int	check_args(int argc, char *argv[])
 {
 	if (!check_duplicates(argc, argv))
