@@ -6,17 +6,17 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:02:34 by halzamma          #+#    #+#             */
-/*   Updated: 2025/03/07 17:25:23 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/24 13:07:02 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include "../include/libft.h"
 
-void push_to_stack(t_stack *stack, int value)
+void	push_to_stack(t_stack *stack, int value)
 {
-	t_node *new;
-	t_node *current;
+	t_node	*new;
+	t_node	*current;
 
 	new = (t_node *)malloc(sizeof(t_node));
 	if (!new)
@@ -42,7 +42,7 @@ void push_to_stack(t_stack *stack, int value)
 void	fill_stack(t_stack *a, char *argv[])
 {
 	int	i;
-	int value;
+	int	value;
 
 	i = 1;
 	while (argv[i])

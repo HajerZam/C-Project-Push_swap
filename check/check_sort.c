@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_utils.c                                       :+:      :+:    :+:   */
+/*   check_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 23:23:21 by halzamma          #+#    #+#             */
-/*   Updated: 2025/03/24 12:25:48 by halzamma         ###   ########.fr       */
+/*   Created: 2025/03/15 11:47:24 by halzamma          #+#    #+#             */
+/*   Updated: 2025/03/15 11:47:24 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include "../include/ft_printf.h"
 
-void	pa(t_stack *a, t_stack *b)
+
+int	is_sorted(t_stack *stack)
 {
-	int	value;
+	t_node *tmp;
 
-	if (b->size < 1)
-		return ;
-	value = pop(b);
-	push(a, value);
-	ft_printf("pa\n");
-}
-
-void	pb(t_stack *a, t_stack *b)
-{
-	int	value;
-
-	if (a->size < 1)
-		return ;
-	value = pop(a);
-	push(b, value);
-	ft_printf("pb\n");
+	tmp = stack->top;
+	while(tmp && tmp->next)
+	{
+		if (tmp->nb > tmp->next->nb)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }

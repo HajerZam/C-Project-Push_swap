@@ -6,7 +6,7 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 23:19:24 by halzamma          #+#    #+#             */
-/*   Updated: 2025/03/10 14:59:52 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/22 20:25:24 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct s_node
 {
@@ -51,13 +52,18 @@ void	fill_stack(t_stack *a, char *argv[]);
 int		stack_size(t_stack *stack);
 
 // sorts
-
-
+void	sort_three(t_stack *a);
+void	sort_four(t_stack *a, t_stack *b);
+void	sort_five(t_stack *a, t_stack *b);
+int		find_min_index(t_stack *a);
+void	move_min_to_top(t_stack *a, int min_index);
+void	radix_sort(t_stack *a, t_stack *b);
 
 // check
 int		check_args(int argc, char *argv[]);
 int		check_duplicates(int argc, char *argv[]);
 int		check_sorted(int argc, char *argv[]);
 int		check_args(int argc, char *argv[]);
+int		is_sorted(t_stack *stack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 15:15:38 by halzamma          #+#    #+#             */
-/*   Updated: 2025/03/10 14:27:35 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/24 12:58:50 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,21 @@ void	initialize_stacks(t_stack **a, t_stack **b)
 
 void	sort_stacks(t_stack *a, t_stack *b)
 {
-	if (a->size == 3)
-        sort_three(a);
-    else if (a->size == 5)
-        sort_five(a, b);
-    else if (a->size <= 100)
-        greedy_sort(a, b);
-    else
-        radix_sort(a, b);
+	if (is_sorted(a))
+		return ;
+	if (a->size == 2)
+	{
+		if (a->top->nb > a->top->next->nb)
+			sa(a);
+	}
+	else if (a->size == 3)
+		sort_three(a);
+	else if (a->size == 4)
+		sort_four(a, b);
+	else if (a->size == 5)
+		sort_five(a, b);
+	else
+		radix_sort(a, b);
 }
 
 void	free_stack(t_stack *stack)
@@ -47,23 +54,26 @@ void	free_stack(t_stack *stack)
 	free(stack);
 }
 
-void print_stack(t_stack *stack)
+void	print_stack(t_stack *stack)
 {
-    t_node *current = stack->top;
-    printf("Stack (size = %d):\n", stack->size);
-    while (current != NULL)
-    {
-        printf("%d -> ", current->nb);  // Print the current node's nb
-        current = current->next;
-    }
-    printf("NULL\n");  // End of stack
+	t_node	*current;
+
+	current = stack->top;
+	ft_printf("Stack (size = %d):\n", stack->size);
+	while (current != NULL)
+	{
+		ft_printf("%d -> ", current->nb);
+		current = current->next;
+	}
+	ft_printf("NULL\n");
 }
+
 int	main(int argc, char *argv[])
 {
 	t_stack	*a;
 	t_stack	*b;
 
-	if (argc < 2 || !check_args(argc, argv)) 
+	if (argc < 2 || !check_args(argc, argv))
 	{
 		ft_printf("Error\n");
 		return (0);

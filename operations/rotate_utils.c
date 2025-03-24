@@ -6,17 +6,17 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 23:25:50 by halzamma          #+#    #+#             */
-/*   Updated: 2025/02/25 23:25:50 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/24 12:52:59 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include "../include/ft_printf.h"
 
-void ra(t_stack *a)
+void	ra(t_stack *a)
 {
-	t_node *tmp;
-	t_node *last;
+	t_node	*tmp;
+	t_node	*last;
 
 	if (a->size < 2 || !a->top || !a->top->next)
 		return ;
@@ -26,7 +26,6 @@ void ra(t_stack *a)
 	last = a->top;
 	while (last->next)
 		last = last->next;
-
 	last->next = tmp;
 	ft_printf("ra\n");
 }
