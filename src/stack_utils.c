@@ -6,7 +6,7 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:02:34 by halzamma          #+#    #+#             */
-/*   Updated: 2025/03/24 14:57:48 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/24 15:21:43 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ void	push_to_stack(t_stack *stack, int value)
 
 void	fill_values(t_stack *a, char *argv[])
 {
-	int	i;
-	int	value;
+	int		i;
+	long	value;
 
 	i = 1;
 	while (argv[i])
 	{
-		value = ft_atoi(argv[i]);
+		value = ft_atol(argv[i]);
 		if (value > 2147483647 || value < -2147483648)
 			exit(1);
 		push_to_stack(a, value);
@@ -75,6 +75,6 @@ void	assign_indexes(t_stack *a)
 
 void	fill_stack(t_stack *a, char *argv[])
 {
-	fill_raw_values(a, argv);
+	fill_values(a, argv);
 	assign_indexes(a);
 }

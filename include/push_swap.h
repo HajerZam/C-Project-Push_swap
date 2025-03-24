@@ -6,7 +6,7 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 23:19:24 by halzamma          #+#    #+#             */
-/*   Updated: 2025/03/24 15:01:57 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/24 15:20:04 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,12 @@ void	sort_five(t_stack *a, t_stack *b);
 int		find_min_index(t_stack *a);
 void	move_min_to_top(t_stack *a, int min_index);
 void	radix_sort(t_stack *a, t_stack *b);
-int		*to_array(t_stack *a);
-void	sort_array(int *arr, int size);
+int		*stack_to_array(t_stack *a);
+void	fill_values(t_stack *a, char *argv[]);
+void	assign_indexes(t_stack *a);
+long	ft_atol(const char *str);
 int		get_index(int *sorted, int value, int size);
+void	sort_array(int *arr, int size);
 
 // check
 int		check_args(int argc, char *argv[]);

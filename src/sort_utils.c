@@ -6,7 +6,7 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:11:04 by halzamma          #+#    #+#             */
-/*   Updated: 2025/03/24 13:06:06 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/24 15:14:24 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,29 @@ void	move_min_to_top(t_stack *a, int min_index)
 		while (min_index-- > 0)
 			rra(a);
 	}
+}
+
+long	ft_atol(const char *str)
+{
+	int		i;
+	int		sign;
+	long	res;
+
+	i = 0;
+	sign = 1;
+	res = 0;
+	while (str[i] && (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r')))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + (str[i] - '0');
+		i++;
+	}
+	return (res * sign);
 }
