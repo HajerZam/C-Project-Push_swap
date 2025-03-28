@@ -6,7 +6,7 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 23:19:24 by halzamma          #+#    #+#             */
-/*   Updated: 2025/03/24 16:11:55 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/25 14:25:00 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int		get_index(int *sorted, int value, int size);
 void	sort_array(int *arr, int size);
 int		find_max_index(t_stack *b);
 void	move_max_to_top(t_stack *b, int max_index);
+void	push_back_to_a(t_stack *a, t_stack *b);
 
 // check
 int		check_args(int argc, char *argv[]);

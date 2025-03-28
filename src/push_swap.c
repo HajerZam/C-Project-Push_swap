@@ -6,7 +6,7 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 15:15:38 by halzamma          #+#    #+#             */
-/*   Updated: 2025/03/25 14:20:42 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/03/25 14:30:26 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	sort_stacks(t_stack *a, t_stack *b)
 	else if (a->size <= 100)
 		radix_sort(a, b, 5);
 	else
-		radix_sort(a, b, 10);
+		radix_sort(a, b, 11);
 }
 
 void	free_stack(t_stack *stack)
