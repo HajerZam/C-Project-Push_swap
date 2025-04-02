@@ -6,7 +6,7 @@
 /*   By: halzamma <halzamma@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 23:19:24 by halzamma          #+#    #+#             */
-/*   Updated: 2025/03/25 14:25:00 by halzamma         ###   ########.fr       */
+/*   Updated: 2025/04/02 12:53:33 by halzamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ t_stack	*init_stack(void);
 void	push_to_stack(t_stack *stack, int value);
 void	fill_stack(t_stack *a, char *argv[]);
 int		stack_size(t_stack *stack);
+void	fill_stack_string(t_stack *a, char *arg);
 
 // sorts
 void	sort_three(t_stack *a);
@@ -74,5 +75,7 @@ int		check_duplicates(int argc, char *argv[]);
 int		check_sorted(int argc, char *argv[]);
 int		check_args(int argc, char *argv[]);
 int		is_sorted(t_stack *stack);
+int		is_valid(int argc, char **argv);
+int		check_string(char *str);
 
 #endif
