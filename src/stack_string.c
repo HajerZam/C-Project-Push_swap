@@ -29,4 +29,5 @@ void	fill_stack_string(t_stack *a, char *arg)
 		i++;
 	}
 	free(args);
+	assign_indexes(a);
 }
