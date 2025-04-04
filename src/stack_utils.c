@@ -49,7 +49,10 @@ void	fill_values(t_stack *a, char *argv[])
 	{
 		value = ft_atol(argv[i]);
 		if (value > 2147483647 || value < -2147483648)
+		{
+			ft_putstr_fd("Error\n", 2);
 			exit(1);
+		}
 		push_to_stack(a, value);
 		i++;
 	}
