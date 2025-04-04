@@ -24,13 +24,15 @@ void	sort_stacks(t_stack *a, t_stack *b)
 {
 	if (is_sorted(a) || a->size == 1)
 	{
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		return ;
 	}
 	if (a->size == 2)
 		sa(a);
 	else if (a->size == 3)
 		sort_three(a);
+	else if (a->size == 4)
+		sort_four(a, b);
 	else if (a->size <= 6)
 		sort_five(a, b);
 	else if (a->size <= 100)
