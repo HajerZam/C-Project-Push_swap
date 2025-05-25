@@ -6,6 +6,8 @@
   <img src="https://img.shields.io/github/repo-size/HajerZam/C-Project-Push_swap?style=flat-square" />
   <img src="https://img.shields.io/github/last-commit/HajerZam/C-Project-Push_swap?style=flat-square" />
   <img src="https://img.shields.io/github/issues/HajerZam/C-Project-Push_swap?style=flat-square" />
+  <img src="https://img.shields.io/badge/42-Common%20Core-critical" />
+  <img src="https://img.shields.io/badge/score-91-brightgreen?style=flat-square">
 </p>
 
 <p align="center">
